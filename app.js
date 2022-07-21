@@ -48,8 +48,10 @@ let newEmailName = document.getElementById('newEmail')
 let newPassword = document.getElementById('newPassword')
 let createAccount = document.getElementById('modalCreate')
 let logdetails = document.getElementById('logdetails')
+let Dmodal = document.getElementById("modal");
 
 form.addEventListener('submit',handleLogin)
+createAccount.addEventListener('click',handleCreateAcct)
 
 
 
@@ -57,17 +59,55 @@ form.addEventListener('submit',handleLogin)
 function handleLogin(event){
     
     if(email.value.trim() !== "" && password.value.trim() !== '' ){
+        showAlert('success','Welcome Back')
         passed()
+
 
     }else{
         showAlert('error','please enter details')
        
     }
 
-
     event.preventDefault()
 }
 
+function handleCreateAcct(){
+    if(newFirstName.value.trim() !== "" && newSurName.value.trim() !== '' && newEmailName.value.trim() !== "" && newPassword.value.trim() !== ''){
+
+        let duplicate = false
+        
+        database.forEach((data)=>{
+            if(data.email === newEmailName.value){
+                duplicate = true
+            }
+        })
+
+        if(duplicate !== true){
+            let data = {
+                surName: newSurName.value,
+                firstName: newFirstName.value,
+                password: newPassword.value,
+                email: newEmailName.value
+            }
+            let news = {
+                email: newEmailName.value,
+                timeLine: `${newFirstName.value} ${newSurName.value} WELCOME TO YOUR FACEBOOK`
+            }
+    
+            create(data,news)
+            showAlert('success',"Account Created")
+            Dmodal.style.display = 'none';
+        }else{
+            showAlert('error',"Email has already being taken")
+        }
+
+        
+
+    }else{
+        showAlert('error','please enter details')
+       
+    }
+}
 
 // to show the alert 
 
@@ -79,13 +119,25 @@ function showAlert(result,message){
 }
 
 
+
+
+function create(data,news){
+
+    database.push(data)
+    newFeeds.push(news)
+
+    console.log(database)
+    console.log(newFeeds)
+
+}
+
 let result = {
     found: null,
     email:''
 }
 
 function passed(){
-    
+
     database.forEach((data)=>{
         if(data.email === email.value && data.password == password.value){
             result.found = true
