@@ -40,7 +40,7 @@ let email = document.getElementById('email')
 let password = document.getElementById('password')
 let btnLogin = document.getElementById('btnLogin')
 let form = document.getElementById('form')
-let container = document.get 
+// let container = document.get 
 //declaration  for the sign up
 let newFirstName = document.getElementById('firstName')
 let newSurName = document.getElementById('surName')
@@ -59,9 +59,7 @@ createAccount.addEventListener('click',handleCreateAcct)
 function handleLogin(event){
     
     if(email.value.trim() !== "" && password.value.trim() !== '' ){
-        showAlert('success','Welcome Back')
         passed()
-
 
     }else{
         showAlert('error','please enter details')
@@ -156,12 +154,14 @@ function passed(){
         //     <img src="loading.gif" >
         // </div>`
         // console.log(result)
+
+        showAlert('success','Welcome Back')
         form.innerHTML = `
         <div class = 'loading'>
             <img src="loading.gif" >
         </div>`
 
     }else{
-        
+        showAlert('error','Cannot find username or password')
     }
 }
