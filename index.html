@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logdetails">
+            
+        </div>
+        <header class="login-header">
+            <div class="face-image">
+                <img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="facebook">
+            </div>
+            <h3>Facebook helps you connect and share with the people in your life.</h3>
+        </header>
+        <section class="login-section">
+            <form class="form-login" id="form">
+                <div class="login">
+                    <input type="text" name="email" id="email" placeholder="Email address">
+                    
+                    <input type="password" name="password" id="password" placeholder="Password">
+                    
+                    <button class="btn btn-login" type="submit" id="btnLogin">Log In</button>
+
+                    <p class="forget-pass">
+                        Forgotten password?
+                    </p>
+                </div>
+                <div class="create">
+                    <button type="button" class="btn btn-create" id="modalbtn">Create New Account</button>
+                </div>
+            </form>
+            <div class="modal" id="modal">
+                <div class="modalContent" id="modalcontent">
+                    <div class="modal-signUp">
+                        <h2>Sign up it's easy</h2>
+                        <span class="closeModal">&times;</span> 
+                    </div>
+                    
+                    <div class="modalDetails">
+                        <div class="modalNames">
+                            <input type="text" name="firstName" id="firstName" placeholder="Firstname">
+
+                            <input type="password" name="surName" id="surName" placeholder="Surname">
+                        </div>
+                        <div class="modalOthers">
+                            <input type="email" name="newEmail" id="newEmail" placeholder="Email Address">
+
+                            <input type="password" name="newPassword" id="newPassword" placeholder="New Password">
+                        </div>
+                        <div class=" create modalCreate">
+                            <button type="button" class="btn btn-create" id="modalCreate">Sign Up</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </div>
+<script src="modal-pro.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

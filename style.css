@@ -1,0 +1,233 @@
+*{
+    box-sizing: border-box;
+}
+html,body{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    position: relative;
+}
+.logdetails{
+    position: absolute;
+    top: 0;
+    left: 40%;
+    right: 40%;
+}
+.success{
+    background-color: greenyellow;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    margin: 10px auto;
+    color: rgba(0, 0, 0, 0.742);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.error{
+
+    background-color: rgba(255, 0, 0, 0.667);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    margin: 10px auto;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.container{
+    width: 65%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10%;
+}
+.face-image{
+    width: 350px;
+    height: 100px;
+    margin-left: -35px;
+}
+.login-header{
+    width: 50%;
+}
+.login-header h3{
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: normal;
+    
+}
+.login-section{
+    width: 40%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+}
+.form-login{
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0.5px solid #8080803b;
+    padding-bottom: 8px;
+}
+.login input{
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.677);
+    outline: none;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+.login input:focus{
+    border-color: #1877f2;
+    caret-color: #1877f2;
+}
+.btn{
+    outline: none;
+    border: none;
+}
+.btn-login{
+    border: 1px solid #1877f2;
+    background-color: #1877f2;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+.btn-login:hover{
+    border: 1px solid #1877f2;
+    color: #1877f2;
+    background-color: white;
+    cursor: pointer;
+}
+.forget-pass{
+    text-align: center;
+    color: #1877f2;
+}
+.create{
+    text-align: center;
+    padding: 15px;
+}
+.btn-create{
+    border: 1px solid #42b72a;
+    background-color: #42b72a;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.btn-create:hover{
+    border: 1px solid #42b72a;
+    color: #42b72a;
+    background-color: white;
+    cursor: pointer;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: auto;
+    
+}
+.modalContent{
+    margin: 10% auto;
+    background-color: white;
+    width: 40%;
+    min-height: 100px;
+    padding: 10px;
+    /* box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.2); */
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;   
+}
+.closeModal{
+    /* font-size: 1.5em; */
+    /* float: right; */
+    font-size: 1.5rem;
+}
+.closeModal:hover, .closeModal:active{
+    color :#1877f2;
+    cursor: pointer;
+    text-decoration:none;
+    
+}
+.modal-signUp{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    
+}
+.modalDetails{
+    width: 80%;
+    padding: 20px;
+    padding-top: 0;
+}
+.modalNames{
+    display: flex;
+    flex-direction: column;
+}
+.modalNames input{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.677);
+    outline: none;
+    margin-bottom: 10px;
+    font-size: 17px;
+    margin-left: auto;
+    width: 80%;
+}
+/* .modalDetails #firstName{
+    margin-right: 20px;
+} */
+.modalNames input:focus{
+    border-color: #1877f2;
+    caret-color: #1877f2;
+}
+.modalOthers{
+    display: flex;
+    flex-direction: column;
+}
+.modalOthers input{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.677);
+    outline: none;
+    margin-bottom: 10px;
+    font-size: 17px;
+    margin-left: auto;
+    width: 80%;
+}
+.modalOthers input:focus{
+    border-color: #1877f2;
+    caret-color: #1877f2;
+}
+.modalCreate{
+    width: 100%;
+
+}
+.modalCreate button{
+    width: 80%;
+    margin-left: 80px;
+}
+
+.loading{
+    width: 100%;
+    padding-top: 20%;  
+    padding-bottom: 20%;  
+    display: flex;
+    justify-content: center;  
+}
+.loading img{
+    width: 150px;
+    height: 150px;
+}
