@@ -22,7 +22,7 @@ let database = [
 let newFeeds = [
     {
         email: 'salimanoladimeji@gmail.com',
-        timeLine: 'SALIMAN ABDULWASIU WELCOME TO YOUR FACEBOOK'
+        timeLine: 'Saliman Abdulwasiu WELCOME TO YOUR FACEBOOK'
     },
     {
         email: 'suleimanmohammed@gmail.com',
@@ -113,7 +113,7 @@ function showAlert(result,message){
     logdetails.innerHTML = `<div class = ${result}>${message}</div>`
     setTimeout(()=>{
         logdetails.innerHTML = ''
-    },2000)
+    },1500)
 }
 
 
@@ -124,14 +124,12 @@ function create(data,news){
     database.push(data)
     newFeeds.push(news)
 
-    console.log(database)
-    console.log(newFeeds)
-
 }
 
 let result = {
     found: null,
-    email:''
+    email:'',
+    timeLine: ''
 }
 
 function passed(){
@@ -147,6 +145,7 @@ function passed(){
     email.value = ''
     password.value = ''
 
+
     if(result.found){
         // document.body.style.background = 'white'
         // document.body.innerHTML = `
@@ -156,10 +155,29 @@ function passed(){
         // console.log(result)
 
         showAlert('success','Welcome Back')
+        newFeeds.forEach((user)=>{
+            if(user.email === result.email){
+                result.timeLine = user.timeLine
+            }
+        })
+
         form.innerHTML = `
-        <div class = 'loading'>
-            <img src="loading.gif" >
-        </div>`
+                <div class = 'loading'>
+                    <img src="loading.gif" >
+                </div>`
+        setTimeout(()=>{
+            document.body.innerHTML = `
+                <header class="loginPage-header">
+                    <h1>WELCOME TO YOUR FACEBOOK</h1>
+                </header>
+                <div class="loginPage-container">
+                    <img src="loading.gif">
+                    <h1>LOADING... ${result.timeLine}</h1>
+                </div>
+            `
+        },1500)
+        
+        
 
     }else{
         showAlert('error','Cannot find username or password')

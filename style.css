@@ -232,3 +232,21 @@ body{
     width: 150px;
     height: 150px;
 }
+.loginPage-header{
+    background-color: #1877f2;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+.loginPage-header h1{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.loginPage-container{
+    width: 40%;
+    margin: 10% auto 0 auto;
+    text-align: center;
+}
+.loginPage-container img{
+    margin-bottom: 20px;
+}
