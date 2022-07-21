@@ -47,6 +47,7 @@ let newSurName = document.getElementById('surName')
 let newEmailName = document.getElementById('newEmail')
 let newPassword = document.getElementById('newPassword')
 let createAccount = document.getElementById('modalCreate')
+let logdetails = document.getElementById('logdetails')
 
 form.addEventListener('submit',handleLogin)
 
@@ -54,10 +55,36 @@ form.addEventListener('submit',handleLogin)
 
 
 function handleLogin(event){
-    let result = {
-        found: null,
-        email:''
+    
+    if(email.value.trim() !== "" && password.value.trim() !== '' ){
+        passed()
+
+    }else{
+        showAlert('error','please enter details')
+       
     }
+
+
+    event.preventDefault()
+}
+
+
+// to show the alert 
+
+function showAlert(result,message){
+    logdetails.innerHTML = `<div class = ${result}>${message}</div>`
+    setTimeout(()=>{
+        logdetails.innerHTML = ''
+    },2000)
+}
+
+
+let result = {
+    found: null,
+    email:''
+}
+
+function passed(){
     
     database.forEach((data)=>{
         if(data.email === email.value && data.password == password.value){
@@ -85,7 +112,4 @@ function handleLogin(event){
     }else{
         
     }
-
-
-    event.preventDefault()
 }
