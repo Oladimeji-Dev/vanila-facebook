@@ -147,12 +147,7 @@ function passed(){
 
 
     if(result.found){
-        // document.body.style.background = 'white'
-        // document.body.innerHTML = `
-        // <div class = 'loading'>
-        //     <img src="loading.gif" >
-        // </div>`
-        // console.log(result)
+        
 
         showAlert('success','Welcome Back')
         newFeeds.forEach((user)=>{

@@ -250,3 +250,23 @@ body{
 .loginPage-container img{
     margin-bottom: 20px;
 }
+
+
+
+@media only screen and (max-width: 1350px) {
+    .container{
+        width: 80%;
+        
+    } 
+    
+} 
+
+@media only screen and (max-width: 980px) {
+    .container{
+        flex-direction: column;
+        padding-top: 0;
+        width: 100%;
+        
+    } 
+    
+} 
