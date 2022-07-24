@@ -49,6 +49,7 @@ let newFirstName = document.getElementById('firstName')
 let newSurName = document.getElementById('surName')
 let newEmailName = document.getElementById('newEmail')
 let newPassword = document.getElementById('newPassword')
+let conPassword = document.getElementById('confirmPassword')
 let createAccount = document.getElementById('modalCreate')
 let logdetails = document.getElementById('logdetails')
 let Dmodal = document.getElementById("modal");
@@ -56,6 +57,7 @@ let Dmodal = document.getElementById("modal");
 form.addEventListener('submit',handleLogin)
 createAccount.addEventListener('click',handleCreateAcct)
 body.addEventListener('click',handleBodyDelete)
+
 
 
 
@@ -73,41 +75,46 @@ function handleLogin(event){
 }
 
 function handleCreateAcct(){
-    if(newFirstName.value.trim() !== "" && newSurName.value.trim() !== '' && newEmailName.value.trim() !== "" && newPassword.value.trim() !== ''){
+    if(newFirstName.value.trim() !== "" && newSurName.value.trim() !== '' && newEmailName.value.trim() !== "" && newPassword.value.trim() !== '' && conPassword.value.trim() !== ''){
 
-        let duplicate = false
+        if(newPassword.value === conPassword.value){
+            let duplicate = false
         
-        database.forEach((data)=>{
-            if(data.email === newEmailName.value){
-                duplicate = true
-            }
-        })
+            database.forEach((data)=>{
+                if(data.email === newEmailName.value){
+                    duplicate = true
+                }
+            })
 
-        if(duplicate !== true){
-            let data = {
-                surName: newSurName.value,
-                firstName: newFirstName.value,
-                password: newPassword.value,
-                email: newEmailName.value
+            if(duplicate !== true){
+                let data = {
+                    surName: newSurName.value,
+                    firstName: newFirstName.value,
+                    password: newPassword.value,
+                    email: newEmailName.value
+                }
+                let news = {
+                    email: newEmailName.value,
+                    timeLine: `${newFirstName.value} ${newSurName.value} WELCOME TO YOUR FACEBOOK`
+                }
+        
+                create(data,news)
+                showAlert('success',"Account Created")
+                Dmodal.style.display = 'none';
+            }else{
+                showAlert('error',"Email has already being taken")
             }
-            let news = {
-                email: newEmailName.value,
-                timeLine: `${newFirstName.value} ${newSurName.value} WELCOME TO YOUR FACEBOOK`
-            }
-    
-            create(data,news)
-            showAlert('success',"Account Created")
-            Dmodal.style.display = 'none';
+
+            
+
         }else{
-            showAlert('error',"Email has already being taken")
+            showAlert('error','Password does not match check password')
         }
-
-        
-
     }else{
         showAlert('error','please enter details')
-       
     }
+
+        
 }
 
 
@@ -116,7 +123,7 @@ function handleBodyDelete(event){
     let target = event.target
 
     if(target.classList.contains('logOut')){
-        
+
         document.body.innerHTML = defaultBody
     }
 }
