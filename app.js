@@ -40,6 +40,9 @@ let email = document.getElementById('email')
 let password = document.getElementById('password')
 let btnLogin = document.getElementById('btnLogin')
 let form = document.getElementById('form')
+let body = document.querySelector('body')
+let defaultBody = body.innerHTML
+
 // let container = document.get 
 //declaration  for the sign up
 let newFirstName = document.getElementById('firstName')
@@ -52,7 +55,7 @@ let Dmodal = document.getElementById("modal");
 
 form.addEventListener('submit',handleLogin)
 createAccount.addEventListener('click',handleCreateAcct)
-
+body.addEventListener('click',handleBodyDelete)
 
 
 
@@ -107,6 +110,16 @@ function handleCreateAcct(){
     }
 }
 
+
+//handle the body listner to deligate the logOut button 
+function handleBodyDelete(event){
+    let target = event.target
+
+    if(target.classList.contains('logOut')){
+        
+        document.body.innerHTML = defaultBody
+    }
+}
 // to show the alert 
 
 function showAlert(result,message){
@@ -168,13 +181,16 @@ function passed(){
                 <div class="loginPage-container">
                     <img src="loading.gif">
                     <h1>LOADING... ${result.timeLine}</h1>
+                    <button class="btn btn-login logOut" id="logOut" >Log Out</button>
                 </div>
             `
+            
         },1500)
-        
-        
+
+       
 
     }else{
         showAlert('error','Cannot find username or password')
     }
 }
+
